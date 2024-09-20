@@ -1,32 +1,32 @@
 import re
 
-def checker(pass):
-    length = len(pass) >= 8
-    up = bool(re.search(r'[A-Z]',pass))
-    lp = bool(re.search(r'[a-z]',pass))
-    num = bool(re.search(r'[0-9]',pass))
-    sp = bool(re.search(r'[!@#$%^&*(),.?":{}|<>]', pass))
+def checker(password):     
+    length = len(password) >= 8     
+    up = bool(re.search(r'[A-Z]', password))     
+    lp = bool(re.search(r'[a-z]', password))     
+    num = bool(re.search(r'[0-9]', password))     
+    sp = bool(re.search(r'[!@#$%^&*(),.?":{}|<>]', password))      
     
-    if length and up and lp and num and sp:
-        return "Strong pass"
-    else:
-        feedback = "Weak pass \n"
-        if not length:
-            feedback = feedback + "pass length is less than 8 \n"
-        if not up:
-            feedback = feedback + "pass does not contain the uppercase \n"
-        if not lp:
-            feedback = feedback + "pass does not contain the lowercase \n"
-        if not num:
-            feedback = feedback + "pass does not contain the num \n"
-        if not sp:
-            feedback = feedback + "pass does not contain the special character \n"
+    if length and up and lp and num and sp:         
+        return "Strong password"     
+    else:         
+        feedback = "Weak password\n"         
+        if not length:             
+            feedback += "Password length is less than 8 characters\n"         
+        if not up:             
+            feedback += "Password does not contain an uppercase letter\n"         
+        if not lp:             
+            feedback += "Password does not contain a lowercase letter\n"         
+        if not num:             
+            feedback += "Password does not contain a number\n"         
+        if not sp:             
+            feedback += "Password does not contain a special character\n"         
         return feedback
 
-def main():
-    pass = input("Enter the pass: ")
-    result = checker(pass)
+def main():     
+    password = input("Enter the password: ")     
+    result = checker(password)     
     print(result)
 
-if __name__ == "__main__":
+if __name__ == "__main__":     
     main()
